@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# A Simple Note App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was a Test by Kwame AI with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

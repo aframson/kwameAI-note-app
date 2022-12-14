@@ -1,6 +1,6 @@
 const Config = {
 
-    API_URL:'http://172.20.10.2:7070',
+    API_URL:'kwameai-noteapp-server-production-6a7e.up.railway.app',
   
  }
  
