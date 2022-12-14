@@ -106,7 +106,6 @@
     margin-top: 100px;
     width: 60%;
     padding: 20px;
-    border-bottom: 1px solid gray;
 }
 .editbox{
     background-color: white;
@@ -155,6 +154,8 @@
     /* border: 1px solid; */
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    padding-bottom: 20px;
 }
 .num{
     font-size: 25px;
@@ -179,4 +180,37 @@
     background-color: rgb(62, 245, 162);
     margin-left: 20px;
 
+}
+.notes{
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.del{
+    /* border: 1px solid; */
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    height: fit-content;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(255, 186, 186);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.del:hover{
+    background-color: rgb(253, 121, 121);
+}
+.title2{
+    font-size: 25px;
+    font-weight: 700;
+}
+.body2{
+    color: gray;
 }
