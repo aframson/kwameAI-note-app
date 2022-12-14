@@ -85,7 +85,7 @@
 
 .data {
     padding: 10px;
-    color: blueviolet;
+    color: rgb(83, 43, 226);
     font-weight: bold;
     font-size: 18px;
 }
@@ -157,6 +157,11 @@
     border-bottom: 1px solid rgb(190, 190, 190);
     padding-bottom: 20px;
 }
+.rowbox2{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
 .num{
     font-size: 25px;
     font-weight: 700;
@@ -191,6 +196,10 @@
     display: flex;
     justify-content: space-between;
 }
+.notes:hover{
+    cursor: pointer;
+    background-color: #f1f1f1;
+}
 .del{
     /* border: 1px solid; */
     padding: 5px;
@@ -213,4 +222,13 @@
 }
 .body2{
     color: gray;
+}
+.content{
+    /* border: 1px solid; */
+    width: 100%;
+}
+.last{
+    color: rgb(43, 107, 226);
+    margin-top: 10px;
+    font-size: 12px;
 }

@@ -1,34 +1,33 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/app.css";
 import Config from "../Config";
 import ReactLoading from "react-loading";
 import { RiDeleteBin7Fill } from "react-icons/ri";
-import {StateContext} from '../State'
 
-const EditBox = ({fetchState, setfetchSate}) => {
+const UpdateBox = ({ id, title, body, fetchState, setfetchSate }) => {
+  const [titles, setTitle] = useState(title && title);
+  const [bodys, setBody] = useState(body && body);
+ 
 
-
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
   const [succ, setSuccess] = useState(false);
 
-  const AddNotes = async () => {
+  const UpdateNotes = async () => {
     if (title === "" || body === "") {
       alert("fields must not be empty");
     } else {
       setLoading(true);
-      await fetch(Config.API_URL + "/notes/add", {
+      await fetch(Config.API_URL + "/notes/update", {
         method: "post",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          title: title,
-          body: body
-        })
-      })
+          id: id,
+          title: titles,
+          body: bodys
+        })})
         .then((res) => res.json())
         .then((jsonRes) => {
           console.log("notes : ", jsonRes.code);
@@ -37,9 +36,7 @@ const EditBox = ({fetchState, setfetchSate}) => {
             alert("Title already exists");
           } else {
             setLoading(false);
-            setfetchSate(!fetchState)
-            setTitle("");
-            setBody("");
+            setfetchSate(!fetchState);
             setSuccess(true);
             setTimeout(() => {
               setSuccess(false);
@@ -48,6 +45,8 @@ const EditBox = ({fetchState, setfetchSate}) => {
         });
     }
   };
+
+
 
   return (
     <div className="editbox">
@@ -58,7 +57,7 @@ const EditBox = ({fetchState, setfetchSate}) => {
           type="text"
           name=""
           id=""
-          value={title}
+          value={titles}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
         />
@@ -68,23 +67,25 @@ const EditBox = ({fetchState, setfetchSate}) => {
         <textarea
           placeholder="Enter text body here..."
           className="body"
-          value={body}
+          value={bodys}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
       </p>
-      <button onClick={() => AddNotes()} className="submit">
+      <button
+        style={{ background: "black",color:'white' }}
+        onClick={() => UpdateNotes()}
+        className="submit"
+      >
         <center>
-        {loading?<ReactLoading   height={"20%"}
-              width={"20%"} color="white"/>:'Submit Note'}
+          {loading ? (
+            <ReactLoading height={"10%"} width={"10%"} color="white" />
+          ) : "Update Note"}
         </center>
+
       </button>
-      {succ ? (
-        <span className="succ">
-          Sunmitted successfully , You can add another one again or click anywhere to exit
-        </span>
-      ) : null}
+      {succ ? <span className="succ">Saved !!</span> : null}
     </div>
   );
 };
 
-export default EditBox;
+export default UpdateBox;

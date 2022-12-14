@@ -41,7 +41,6 @@ function App() {
         {loading ? (
           <center> 
             <ReactLoading
-              type={"spin"}
               color={"black"}
               height={"10%"}
               width={"10%"}
