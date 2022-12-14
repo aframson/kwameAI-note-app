@@ -173,3 +173,10 @@
     background-color: rgb(74, 74, 74);
     cursor: pointer;
 }
+
+.succ{
+    padding: 10px;
+    background-color: rgb(62, 245, 162);
+    margin-left: 20px;
+
+}
